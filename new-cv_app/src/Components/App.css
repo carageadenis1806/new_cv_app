@@ -1,0 +1,63 @@
+@import 'reset.css';
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mainSection {
+    border: 2px solid;
+    width: 80vh;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border: 2px solid;
+    padding: 2em;
+}
+.date {
+    display: flex;
+    gap: 10px;
+}
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+.formContainer {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    padding-bottom: 2em;
+}
+
+input, .submitButton {
+    width: 40%;
+}
+
+#textbox {
+    height: 3em;
+}
+
+button.mainButton {
+    width: 40%;
+}
