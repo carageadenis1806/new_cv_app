@@ -8,69 +8,66 @@ import { useState } from "react"
 /* eslint-disable react/prop-types */
 export default function FormsSection ({currentPage, handleButtonClick}) {
 
-    const [firstName, setFirstname] = useState('');
-    const handleChangeFirstname = (e) => {
-        setFirstname(e.target.value);
+    const [formData, setFormData] = useState({
+        firstName: '', 
+        lastName: '', 
+        email: '', 
+        phoneNumber: '', 
+        highschool: '', 
+        uni: '', 
+        job: '', 
+        period1: '', 
+        period2: '', 
+        write: ''});
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({...prevFormData, [name]: value}));
     };
 
-    const [lastName, setLastname] = useState('');
-    const handleChangeLastname = (e) => {
-        setLastname(e.target.value);
-    };
-
-    const [email, setEmail] = useState('');
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const [number, setNumber] = useState('');
-    const handleNumber = (e) => {
-        setNumber(e.target.value);
-    };
-
-    const [highschool, setHighschool] = useState('');
-    const handleHighschool = (e) => {
-        setHighschool(e.target.value);
-    };
-
-    const [uni, setUni] = useState('');
-    const handleUni = (e) => {
-        setUni(e.target.value);
-    };
-
-    const [job, setJob] = useState('');
-    const handleJob = (e) => {
-        setJob(e.target.value);
-    };
-
-    const [period1, setPeriod1] = useState('');
-    const handlePeriod1 = (e) => {
-        setPeriod1(e.target.value);
-    };
-
-    const [period2, setPeriod2] = useState('');
-    const handlePeriod2 = (e) => {
-        setPeriod2(e.target.value);
-    };
-
-    const [write, setWrite] = useState('');
-    const handleWrite = (e) => {
-        setWrite(e.target.value);
-    };
-    
+    const clearFunction = () => {
+        setFormData({
+            firstName: '', 
+            lastName: '', 
+            email: '', 
+            phoneNumber: '', 
+            highschool: '', 
+            uni: '', 
+            job: '', 
+            period1: '', 
+            period2: '', 
+            write: ''
+        });
+    }
+   
     
 
     return (
-        <div>
+        <div className="return">
             {currentPage === 'forms' ? (
             <div className='forms'>
-                    <General handleChangeFirstname={handleChangeFirstname} handleChangeLastname={handleChangeLastname} handleEmail={handleEmail} handleNumber={handleNumber}/>
-                    <Education handleHighschool={handleHighschool} handleUni={handleUni}/>
-                    <Experience handleJob={handleJob} handlePeriod1={handlePeriod1} handlePeriod2={handlePeriod2} handleWrite={handleWrite}/>
-                    <PreviewButton handleClick={handleButtonClick} currentPage={currentPage}/>
+                    <General firstName={formData.firstName} lastName={formData.lastName} email={formData.email} phoneNumber={formData.phoneNumber} handleChange={handleChange}/>
+                    <Education highschool={formData.highschool} uni={formData.uni} handleChange={handleChange}/>
+                    <Experience job={formData.job} period1={formData.period1} period2={formData.period2} write={formData.write} handleChange={handleChange}/>
+                    <PreviewButton handleClick={handleButtonClick} currentPage={currentPage} clear={clearFunction}/>
                 </div>
         ) : (
-            <PreviewCV currentPage={'preview'} handleButtonClick={handleButtonClick} firstName={firstName} lastName={lastName} email={email} number={number} highschool={highschool} uni={uni} job={job} period1={period1} period2={period2} write={write}/>
+            
+            <PreviewCV currentPage={'preview'} 
+            handleButtonClick={handleButtonClick} 
+            clear={clearFunction}
+            firstName={formData.firstName} 
+            lastName={formData.lastName}
+            email={formData.email}
+            phoneNumber={formData.phoneNumber}
+            highschool={formData.highschool}
+            uni={formData.uni}
+            job={formData.job}
+            period1={formData.period1}
+            period2={formData.period2}
+            write={formData.write}
+            
+             />
         )}
         </div>
 

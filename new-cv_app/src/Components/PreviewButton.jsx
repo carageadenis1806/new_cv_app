@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
-export default function PreviewButton ({handleClick, currentPage}) {
+export default function PreviewButton ({handleClick, currentPage, clear}) {
+    
     return (
-        <button onClick={handleClick} className='mainButton'>
+        <div className="buttonContainer">
+            <button onClick={handleClick} className='mainButton'>
             {currentPage === 'forms' ? 'View CV' : 'Go Back'}
-      </button>
+            </button>
+            <button className="clear" onClick={clear}>Clear</button>
+        </div>
+        
     )
    
 }

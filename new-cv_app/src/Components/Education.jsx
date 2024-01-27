@@ -1,13 +1,19 @@
 /* eslint-disable react/prop-types */
-export default function Education ({handleHighschool, highschool, handleUni, uni}) {
+export default function Education ({handleChange, highschool, uni}) {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+    
+
     return (
         <div className="formContainer">
-            <h1>Education</h1>
-            <form className='form' id='educationForm'>
+            <h1 className="subTitle"><u>Education</u></h1>
+            <form className='form' id='educationForm' onSubmit={handleSubmit}>
                 <label>Highschool</label>
-                <input onChange={handleHighschool} value={highschool} type="text" placeholder='Highschool...' />
+                <input name='highschool' onChange={handleChange} value={highschool} type="text" placeholder='' />
                 <label>University</label>
-                <input onChange={handleUni} value={uni} type="text" placeholder='University' />
+                <input name='uni'onChange={handleChange} value={uni} type="text" placeholder='' />
             </form>
         </div>
     )

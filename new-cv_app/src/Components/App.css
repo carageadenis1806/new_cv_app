@@ -1,5 +1,9 @@
 @import 'reset.css';
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600&family=Josefin+Sans:ital,wght@1,700&family=Manrope:wght@600&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600&family=Josefin+Sans:ital,wght@1,700&family=Manrope:wght@600&family=Roboto&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600&family=Josefin+Sans:ital,wght@1,700&family=Manrope:wght@600&family=Roboto+Mono:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,500;1,700&display=swap');
 
 body {
     min-height: 100vh;
@@ -9,13 +13,16 @@ body {
     
 }
 .mainSection {
-    border: 2px solid;
+    height: 120vh;
     width: 80vh;
-    margin: 2em;
+    margin: 0.5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #f0ece2;
+    position: relative;	
+    box-shadow: 0px 0px 6px 1px #969696;;
 }
 
 .form {
@@ -24,8 +31,10 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1em;
-    border: 2px solid;
-    padding: 2em;
+    position: relative;	box-shadow: 0px 0px 6px 2px #596e79;    
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #f0ece2;;
 }
 .date {
     display: flex;
@@ -34,20 +43,33 @@ body {
 .forms {
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    align-items: center;
+    gap: 1em;
 }
 
 .formContainer {
-    margin: 2em;
+    margin: 1em;
     display: flex;
     flex-direction: column;
+    width: 100%;
 
 }
 
 h1 {
     text-align: center;
     font-size: 2em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+}
+
+h1.h1title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 4em;
+    color: #596e79;
+}
+
+h1.subTitle {
+    font-family: 'Roboto', sans-serif;
+    color: #596e79;
 }
 
 input, .submitButton {
@@ -58,6 +80,237 @@ input, .submitButton {
     height: 3em;
 }
 
-button.mainButton {
+
+
+
+button {
     width: 40%;
+    margin-top: 2em;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #596e79;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #596e79;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #596e79;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+label, .date {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+}
+
+.previewContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 7em;
+}
+
+.previewPage {
+    width: 400px;
+
+}
+
+.name {
+    font-weight: 900;
+}
+
+.generalInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    border-bottom: 3px solid #596e79;
+}
+
+.firstName, .emailPhone, .workTitle {
+    text-align: left;
+}
+
+.firstName {
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.workTitle {
+    font-size: 2.5em;
+}
+
+.workExperience {
+    border-bottom: 3px solid #596e79;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+.education {
+    border-bottom: 3px solid #596e79;
+    line-height: 30px;
+    letter-spacing: 1px;
+
+}
+
+.emailPhone {
+    display: flex;
+    gap: 2em;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.workExperience, .education {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.details, .emailPhone {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.period {
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.workTitle, .firstName {
+    font-family: 'DM Sans', sans-serif;
+}
+
+#job {
+    color: #596e79;
+    font-size: 1.5em;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+
+
+
+/* adding responsivness */
+
+@media (max-width: 400px) {
+    .mainSection {
+        height: fit-content;
+        width: fit-content;
+    }
+
+    h1.h1title {
+        font-size: 2em;
+    }
+
+    h1.subTitle {
+        font-size: 1em;
+    }
+
+    .formContainer, .buttonContainer {
+        width: 60%;
+    }
+
+    div.date {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    input.period1 {
+        width: 100%;
+    }
+
+    .experienceLabel {
+        text-align: center;
+        
+    }
+
+    .previewContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+        padding-top: 0;
+    }
+
+    .previewPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .workTitle {
+        font-size: 1em;
+    }
+    
+    .buttonContainer {
+        margin-top: 1em;
+    }
+    .firstName {
+        font-size: 1em;
+        padding-bottom: 0;
+    }
+
+    .email, .phone {
+        font-size: 0.7em;
+    }
+
+    .details {
+        font-size: 10px;
+    }
+
+    .info {
+        gap: 1em;
+    }
+
+    button {
+        font-size: 10px;
+
+    }
+
+    
+
 }

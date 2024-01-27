@@ -2,31 +2,34 @@ import PreviewButton from "./PreviewButton"
 import FormsSection from "./FormsSection"
 
 /* eslint-disable react/prop-types */
-export default function PreviewCV ({currentPage , handleButtonClick, firstName,lastName,email, number, highschool, uni, job,period1, period2, write}) {
+export default function PreviewCV ({currentPage , handleButtonClick, firstName, lastName, email, phoneNumber, highschool, uni, job, period1, period2, write, clear}) {
 
     return (
-        <div>
+        <div className="previewPage">
         {currentPage === 'preview' ? (
             <div className='previewContainer'>
-                <div>
-                    
-                    <h1>GENERAL INFORMATION</h1>
-                    <p>First name: {firstName}</p>
-                    <p>Last name: {lastName}</p>
-                    <p>Email: {email}</p>
-                    <p>Phone number: {number}</p>
-
-                    <h1>EDUCATION</h1>
-                    <p>Highschool: {highschool}</p>
-                    <p>University: {uni}</p>
-
-                    <h1>EXPERIENCE</h1>
-                    <p>Job title: {job}</p>
-                    <p>Period: From {period1} until {period2}</p>
-                    <p>Things learned: {write}</p>
-                
+                <div className="info">
+                <div className="generalInfo">
+                    <h1 className="firstName">{firstName} {lastName}</h1>
+                    <div className="emailPhone">
+                        <div className="email">Email: {email}</div>
+                        <div className="phone">Phone: {phoneNumber}</div>
+                    </div>
                 </div>
-                <PreviewButton handleClick={handleButtonClick} currentPage={currentPage}/>
+                <div className="workExperience">
+                    <h1 className="workTitle">Work Experience</h1>
+                    <p className="details" id="job">{job}</p>
+                    <p className="details">I have worked here from <span className="period">{period1}</span> until <span className="period">{period2}</span>.</p>
+                    <p className="details">Details: {write}</p>
+                </div>
+                
+                <div className="education">
+                <h1 className="workTitle">Education</h1>
+                    <p className="details">Highschool: {highschool}</p>
+                    <p className="details">University: {uni}</p>
+                </div>
+                </div>
+                <PreviewButton handleClick={handleButtonClick} currentPage={currentPage} clear={clear}/>
             </div>
     ) : (
         <FormsSection currentPage={'forms'} />
